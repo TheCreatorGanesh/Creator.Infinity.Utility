@@ -9,7 +9,7 @@ namespace Creator.Infinity.Json
         {
             return new JsonSerializerSettings
             {
-                PreserveReferencesHandling = PreserveReferencesHandling.All,
+                PreserveReferencesHandling = PreserveReferencesHandling.None,
                 ReferenceLoopHandling = ReferenceLoopHandling.Serialize
             };
         }

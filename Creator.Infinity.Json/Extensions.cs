@@ -6,14 +6,14 @@ namespace Creator.Infinity.Json
 
     public static class Extensions
     {
-        public static string ToJson<TKey, TValue>(this Dictionary<TKey, TValue> dictionary)
+        public static string ToJson<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, JsonSerializerSettings? jsonSerializerSettings = null)
         {
-            return dictionary == null ? "" : JsonConvert.SerializeObject(dictionary, Configuration.JsonConvertDefaultSettings());
+            return dictionary == null ? "" : JsonConvert.SerializeObject(dictionary, jsonSerializerSettings ?? Configuration.JsonConvertDefaultSettings());
         }
 
-        public static string ToJson(this object obj)
+        public static string ToJson(this object obj, JsonSerializerSettings? jsonSerializerSettings = null)
         {
-            return obj == null ? "" : JsonConvert.SerializeObject(obj, Configuration.JsonConvertDefaultSettings());
+            return obj == null ? "" : JsonConvert.SerializeObject(obj, jsonSerializerSettings ?? Configuration.JsonConvertDefaultSettings());
         }
     }
 }
