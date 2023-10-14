@@ -40,7 +40,7 @@ jobs:
         run: dotnet publish --no-build -c release -o ./publish ./Creator.Infinity.Json/Creator.Infinity.Json.csproj
 
       - name: Create NuGet Package
-        run: dotnet pack -c release -o ./nuget-publish ./Creator.Infinity.Json/Creator.Infinity.Json.csproj /p:Version=${{ github.ref_name }} /p:PackageReleaseNotes="See https://github.com/TheCreatorGanesh/Github-Experiments/releases/tag/${{ github.ref_name }}"
+        run: dotnet pack -c release -o ./nuget-publish ./Creator.Infinity.Json/Creator.Infinity.Json.csproj /p:Version=${{ github.ref_name }} /p:PackageReleaseNotes="See https://github.com/${{ github.repository }}/releases/tag/${{ github.ref_name }}"
 
       - name: Publish Nuget Package
         run: dotnet nuget push ./nuget-publish/*.nupkg --api-key ${{ secrets.nuget_api_key }} --source https://api.nuget.org/v3/index.json --no-symbols --skip-duplicate
